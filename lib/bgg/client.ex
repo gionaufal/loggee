@@ -7,7 +7,6 @@ defmodule Loggee.Bgg.Client do
   def search(name) do
     "/search?query=#{name}&type=boardgame"
     |> get()
-    |> handle_get()
     |> organize_search_payload()
   end
 
@@ -17,40 +16,39 @@ defmodule Loggee.Bgg.Client do
     |> organize_game_payload()
   end
 
-  defp handle_get({:ok, %Tesla.Env{status: 200, body: body}}) do
-    {:ok, XmlToMap.naive_map(body)}
-  end
-
-  defp organize_search_payload({:ok, payload}) do
-    items = payload["items"]
-    games = items["#content"]["item"] |> Enum.map(fn game ->
-      %{
-        name: game["#content"]["name"]["-value"],
-        year: game["#content"]["yearpublished"]["-value"],
-        id: game["-id"]
-      }
-    end)
-    {:ok, %{games: games, total: items["-total"]}}
+  defp organize_search_payload({:ok, %Tesla.Env{body: body}}) do
+    result =  body |> xmap(
+      total: ~x"//items/@total",
+      games: [
+        ~x"//item"l,
+        id: ~x"./@id",
+        name: ~x"//name/@value",
+        year: ~x"//yearpublished/@value",
+      ]
+    )
+    {:ok, result}
   end
 
   defp organize_game_payload({:ok, %Tesla.Env{body: body}}) do
-    body |> xmap(
-      name: ~x"//name[@type='primary']/@value",
+    result = body |> xmap(
       description: ~x"//description/text()",
-      year_published: ~x"//yearpublished/@value",
       id: ~x"//item/@id",
-      rating: ~x"//statistics/ratings/average/@value",
-      weight: ~x"//statistics/ratings/averageweight/@value",
-      suggested_players: [
+      language_dependence: [
+        ~x"//poll[@name='language_dependence']//result"l,
+        value: ~x"./@value",
+        votes: ~x"./@numvotes",
+      ],
+      name: ~x"//name[@type='primary']/@value",
+      player_count: [
         ~x"//poll[@name='suggested_numplayers']/results"l,
         value: ~x"./@numplayers",
         best: ~x".//result[@value='Best']/@numvotes",
         recommended:  ~x".//result[@value='Recommended']/@numvotes"
       ],
-      language_dependence: [
-        ~x"//poll[@name='language_dependence']//result"l,
-        value: ~x"./@value",
-        votes: ~x"./@numvotes",
-      ])
+      rating: ~x"//statistics/ratings/average/@value",
+      weight: ~x"//statistics/ratings/averageweight/@value",
+      year: ~x"//yearpublished/@value"
+    )
+    {:ok, result}
   end
 end

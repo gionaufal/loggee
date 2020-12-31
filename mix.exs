@@ -26,8 +26,7 @@ defmodule Loggee.MixProject do
       {:hackney, "~> 1.16.0"},
     # optional, required by JSON middleware
       {:jason, ">= 1.0.0"},
-      {:sweet_xml, ">= 0.3.0"},
-      {:elixir_xml_to_map, "~> 2.0"}
+      {:sweet_xml, ">= 0.3.0"}
     ]
   end
 end
