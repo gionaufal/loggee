@@ -1,8 +1,5 @@
 defmodule Loggee.Bgg.Client.Plays do
-  use Tesla
-  import SweetXml
-
-  plug Tesla.Middleware.BaseUrl, "https://boardgamegeek.com/xmlapi2"
+  use Loggee.Bgg.Client
 
   def call(user, start_date \\ nil, end_date \\ nil) do
     "/plays?username=#{user}&mindate=#{start_date}&maxdate=#{end_date}"
