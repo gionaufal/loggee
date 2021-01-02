@@ -1,18 +1,8 @@
 defmodule Loggee do
-  @moduledoc """
-  Documentation for `Loggee`.
-  """
+  alias Loggee.Bgg.Client.{Collection, Game, Plays, Search}
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Loggee.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
+  defdelegate collection(user, collection), to: Collection, as: :call
+  defdelegate game(id), to: Game, as: :call
+  defdelegate plays(user, start_date \\ nil, end_date \\ nil), to: Plays, as: :call
+  defdelegate search(query), to: Search, as: :call
 end
