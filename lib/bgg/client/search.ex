@@ -13,7 +13,7 @@ defmodule Loggee.Bgg.Client.Search do
       games: [
         ~x"//item"l,
         id: ~x"./@id",
-        name: ~x"//name/@value",
+        name: ~x"//name/@value"s,
         year: ~x"//yearpublished/@value"
       ]
     )
