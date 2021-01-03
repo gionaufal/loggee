@@ -5,42 +5,9 @@ defmodule Loggee.Bgg.Client.PostPlays do
   plug Tesla.Middleware.JSON
   # plug Tesla.Middleware.Logger
 
-  def call() do
-    cookies = authenticate(user: "user", password: "password")
+  def call(user, password, play_payload) do
+    cookies = authenticate(user: user, password: password)
 
-    play_payload = %{
-        playdate: "2020-12-29",
-        comments: "",
-        length: 23,
-        twitter: "false",
-        minutes: 23,
-        location: "Home",
-        objectid: "199561",
-        hours: 0,
-        quantity: "1",
-        action: "save",
-        players: [
-            %{
-                username: "g10v45",
-                userid: 555323,
-                repeat: "true",
-                name: "me",
-                win: 1,
-                score: 44,
-                selected: "false"
-            },
-            %{
-                username: nil,
-                userid: nil,
-                name: "Débora",
-                win: 0,
-                score: 39,
-                selected: "false"
-            }
-        ],
-        objecttype: "thing",
-        ajax: 1
-    }
     post_play(play_payload, cookies)
   end
 

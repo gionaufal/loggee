@@ -1,8 +1,8 @@
 defmodule Loggee.Bgg.Client.Plays do
   use Loggee.Bgg.Client
 
-  def call(user, start_date \\ nil, end_date \\ nil) do
-    "/plays?username=#{user}&mindate=#{start_date}&maxdate=#{end_date}"
+  def call(user, start_date \\ nil, end_date \\ nil, id \\ nil) do
+    "/plays?username=#{user}&mindate=#{start_date}&maxdate=#{end_date}&id=#{id}"
     |> get()
     |> organize_plays_payload
   end
