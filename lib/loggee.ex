@@ -13,6 +13,7 @@ defmodule Loggee do
     {:ok, body} = plays(user, nil, nil, "98000")
     user_id = body.user_id
     IO.puts("\nUser: #{user}, id: #{user_id}\n")
+    user_player = Loggee.Player.build("me", user, user_id)
 
     game = IO.gets("\n-> search for the game: (replace spaces with `+`)\n") |> String.trim()
 
@@ -30,10 +31,20 @@ defmodule Loggee do
     date = IO.gets("\n-> when did you play it? (YYYY-MM-DD)\n") |> String.trim()
     length = IO.gets("\n-> for how long (in minutes)?\n") |> String.trim()
     location = IO.gets("\n-> where?\n") |> String.trim()
-    player = IO.gets("\n-> who played with you? (currently only 1 player)\n") |> String.trim()
-    scores = IO.gets("\n-> what where the scores? (Your score, opponnent score)\n") |> String.split(",") |> Enum.map(&String.trim/1)
-    winner = IO.gets("\n-> who won? (ex: 1, 0)\n") |> String.split(",") |> Enum.map(&String.trim/1)
+    players = IO.gets("\n-> who played with you? (just names, comma separated)\n")
+              |> String.split(",")
+              |> Enum.map(&String.trim/1)
+              |> Enum.map(fn name -> Loggee.Player.build(name) end)
+    players = [user_player | players]
+    scores = IO.gets("\n-> what where the scores? (Your score, opponnent scores, comma separated)\n") |> String.split(",") |> Enum.map(&String.trim/1)
+    winners = IO.gets("\n-> who won? (ex: 1, 0)\n") |> String.split(",") |> Enum.map(&String.trim/1)
     comments = IO.gets("\n-> any comments? (leave blank if no)\n") |> String.trim()
+
+    players = players
+              |> Enum.with_index
+              |> Enum.map(fn {player, index} ->
+                %{player | score: Enum.at(scores, index), win: Enum.at(winners, index)}
+              end)
 
     play_payload = %{
       playdate: date,
@@ -46,26 +57,7 @@ defmodule Loggee do
       hours: 0,
       quantity: "1",
       action: "save",
-      players: [
-        %{
-          username: user,
-          userid: user_id,
-          repeat: "true",
-          name: "me",
-          win: Enum.at(winner, 0),
-          score: Enum.at(scores, 0),
-          selected: "false"
-        },
-        %{
-          username: nil,
-          userid: nil,
-          repeat: "true",
-          name: player,
-          win: Enum.at(winner, 1),
-          score: Enum.at(scores, 1),
-          selected: "false"
-        }
-      ],
+      players: players,
       objecttype: "thing",
       ajax: 1
       }
