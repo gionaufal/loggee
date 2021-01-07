@@ -12,7 +12,7 @@ defmodule Loggee.Bgg.Client.Search do
       count: ~x"//items/@total",
       games: [
         ~x"//item"l,
-        id: ~x"./@id",
+        id: ~x"./@id"s,
         name: ~x"//name/@value"s,
         year: ~x"//yearpublished/@value"
       ]

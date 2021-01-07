@@ -3,7 +3,6 @@ defmodule Loggee.Bgg.Client.PostPlays do
 
   adapter Tesla.Adapter.Hackney
   plug Tesla.Middleware.JSON
-  # plug Tesla.Middleware.Logger
 
   def call(user, password, play_payload) do
     cookies = authenticate(user: user, password: password)
@@ -12,7 +11,6 @@ defmodule Loggee.Bgg.Client.PostPlays do
   end
 
   defp authenticate(user: user, password: password) do
-
     login_payload = %{credentials: %{username: user, password: password}}
 
     {:ok, response} =
