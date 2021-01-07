@@ -8,6 +8,7 @@ defmodule Loggee.Bgg.Client.PostPlays do
     cookies = authenticate(user: user, password: password)
 
     post_play(play_payload, cookies)
+    |> handle_post()
   end
 
   defp authenticate(user: user, password: password) do
@@ -22,12 +23,18 @@ defmodule Loggee.Bgg.Client.PostPlays do
   end
 
   defp post_play(payload, cookies) do
-    {:ok, response} =
-      post("https://boardgamegeek.com/geekplay.php",
-        payload,
-        headers: cookies
-      )
+    post("https://boardgamegeek.com/geekplay.php",
+      payload,
+      headers: cookies
+    )
   end
+
+  defp handle_post({:ok, response}) do
+    {:ok, %{message: "Play recorded. You have played this game #{response["numplays"]} times"}}
+  end
+
+  defp handle_post({_, _response} = error), do: error
+
   # Methods to get players and locations
   # TODO: use them when building the CLI
   # defp get_players(cookies) do
