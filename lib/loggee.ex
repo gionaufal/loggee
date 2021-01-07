@@ -71,4 +71,16 @@ defmodule Loggee do
       post_play(user, password, play_payload)
     end
   end
+
+  def random_game() do
+    user = IO.gets("\n-> what is your BGG username?\n") |> String.trim()
+    time = IO.gets("\n-> how long do you want to play?\n") |> String.trim() |> String.to_integer()
+    {:ok, collection} = collection(user, "collection")
+    game = collection.games
+    |> Enum.filter(fn game -> game.play_time <= time end)
+    |> Enum.random
+
+    IO.puts("\nhere's a game for you:")
+    IO.inspect(game)
+  end
 end
