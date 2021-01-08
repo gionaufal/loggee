@@ -2,7 +2,8 @@ defmodule Loggee.Bgg.Client.Search do
   use Loggee.Bgg.Client
 
   def call(name) do
-    "/search?query=#{name}&type=boardgame"
+    query = name |> String.replace(" ", "+")
+    "/search?query=#{query}&type=boardgame"
     |> get()
     |> organize_search_payload()
   end
