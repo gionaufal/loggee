@@ -1,6 +1,6 @@
 # Loggee
 
-Interact with BGG via a simple CLI (TODO: actually encapsulate a CLI).
+Interact with BGG via a simple CLI.
 
 ## Features:
 
@@ -24,13 +24,13 @@ local environment variables. You need to set them wherever you set your envs
   export BGG_PASSWORD="yourpassword"
   ```
 
-To install the project, just clone it and run it in iex
+To install the project, just clone it and generate the executable:
 
   ```
   git clone git@github.com:gionaufal/loggee.git
   cd loggee
   mix deps.get
-  iex -S mix
+  mix escript.build
+  ./loggee
   ```
 
-Then choose an option with `Loggee.start`
