@@ -38,7 +38,20 @@ defmodule Loggee.Commands.PostPlay do
                 %{player | score: Enum.at(scores, index), win: Enum.at(winners, index)}
               end)
 
-    play_payload = %{
+    play_payload = build_play_payload(date, comments, length, location, game_id, players)
+
+    IO.inspect(play_payload)
+    confirm = IO.gets("\n-> confirm play? y/n \n") |> String.trim()
+
+    if confirm == "y" do
+      password = System.get_env("BGG_PASSWORD")
+
+      Loggee.Bgg.Client.PostPlays.call(user, password, play_payload)
+    end
+  end
+
+  defp build_play_payload(date, comments, length, location, game_id, players) do
+    %{
       playdate: date,
       comments: comments,
       length: length,
@@ -52,15 +65,6 @@ defmodule Loggee.Commands.PostPlay do
       players: players,
       objecttype: "thing",
       ajax: 1
-      }
-
-    IO.inspect(play_payload)
-    confirm = IO.gets("\n-> confirm play? y/n \n") |> String.trim()
-
-    if confirm == "y" do
-      password = System.get_env("BGG_PASSWORD")
-
-      Loggee.Bgg.Client.PostPlays.call(user, password, play_payload)
-    end
+    }
   end
 end

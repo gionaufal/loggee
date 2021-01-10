@@ -13,7 +13,7 @@ defmodule Loggee.MixProject do
   end
 
   def escript do
-    [main_module: Loggee]
+    [main_module: Loggee.Cli]
   end
 
   # Run "mix help compile.app" to learn about applications.

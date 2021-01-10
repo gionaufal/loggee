@@ -11,13 +11,13 @@ defmodule Loggee.Bgg.Client.Collection do
       {:error, _} -> false
     end
 
-  def call(user, _collection = "collection") do
+  def call(user, _collection = :collection) do
     "/collection?username=#{user}&excludesubtype=boardgameexpansion&own=1&stats=1"
     |> get()
     |> organize_collection_payload()
   end
 
-  def call(user, _collection = "wishlist") do
+  def call(user, _collection = :wishlist) do
     "/collection?username=#{user}&excludesubtype=boardgameexpansion&wishlist=1&wishlistpriority=1&wishlistpriority=2&stats=1"
     |> get()
     |> organize_collection_payload()
