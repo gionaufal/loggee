@@ -1,0 +1,47 @@
+<items totalitems="2" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Mon, 11 Jan 2021 15:38:22 +0000">
+  <item objecttype="thing" objectid="173346" subtype="boardgame" collid="69588383">
+    <name sortindex="1">7 Wonders Duel</name>
+    <yearpublished>2016</yearpublished>
+    <image>https://cf.geekdo-images.com/sLJkcfxCND6Z8nsb4iACiw__original/img/gorCGYKUx6F7I8PqRoeTs9iLeis=/0x0/filters:format(jpeg)/pic3295285.jpg</image>
+    <thumbnail>https://cf.geekdo-images.com/sLJkcfxCND6Z8nsb4iACiw__thumb/img/gajiojCjmSOulNeoJiEjbJ9k9fs=/fit-in/200x150/filters:strip_icc()/pic3295285.jpg</thumbnail>
+    <stats minplayers="2" maxplayers="2" minplaytime="30" maxplaytime="30" playingtime="30" numowned="91313">
+      <rating value="8.5">
+        <usersrated value="58356"/>
+        <average value="8.10405"/>
+        <bayesaverage value="7.97702"/>
+        <stddev value="1.17659"/>
+        <median value="0"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="17" bayesaverage="7.97702"/>
+          <rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="18" bayesaverage="7.94732"/>
+        </ranks>
+      </rating>
+    </stats>
+    <status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0" preordered="0" lastmodified="2020-06-14 11:16:16"/>
+    <numplays>11</numplays>
+    <comment>Fairly simple to learn, but with a lot of strategy involved. Fast and enjoyable, but you really need to keep attention on your opponent's city.</comment>
+  </item>
+  <item objecttype="thing" objectid="230802" subtype="boardgame" collid="66744728">
+    <name sortindex="1">Azul</name>
+    <yearpublished>2018</yearpublished>
+    <image>https://cf.geekdo-images.com/OFkhqajXf8DhjPMIckVdrg__original/img/-FgRcF3jZ3kA4Ect-z9OrnSo8eU=/0x0/filters:format(jpeg)/pic5277678.jpg</image>
+    <thumbnail>https://cf.geekdo-images.com/OFkhqajXf8DhjPMIckVdrg__thumb/img/JusuiI14UTy5THEgFCXEcr2MGKM=/fit-in/200x150/filters:strip_icc()/pic5277678.jpg</thumbnail>
+    <stats minplayers="2" maxplayers="4" minplaytime="30" maxplaytime="45" playingtime="45" numowned="76409">
+      <rating value="7.5">
+        <usersrated value="51675"/>
+        <average value="7.83332"/>
+        <bayesaverage value="7.71318"/>
+        <stddev value="1.14415"/>
+        <median value="0"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="48" bayesaverage="7.71318"/>
+          <rank type="family" id="4666" name="abstracts" friendlyname="Abstract Game Rank" value="1" bayesaverage="7.68219"/>
+          <rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="4" bayesaverage="7.7266"/>
+        </ranks>
+      </rating>
+    </stats>
+    <status own="1" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="0" preordered="0" lastmodified="2020-08-06 07:21:36"/>
+    <numplays>15</numplays>
+    <comment>This was one of our first games, and the one that we played the most. It's really beautiful and with high quality components. We still play sometimes, but after more than 15 plays it gets a little bit repetitive. The good thing is that the board is double sided, and now we just play with the gray side. Totally worth having and playing!</comment>
+  </item>
+</items>
