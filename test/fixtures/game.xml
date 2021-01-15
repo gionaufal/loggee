@@ -1,0 +1,144 @@
+<items termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgame" id="124361">
+    <thumbnail>https://cf.geekdo-images.com/CzwSm8i7tkLz6cBnrILZBg__thumb/img/ESPSltYYSFK-aJw6jOTdQrJGpOc=/fit-in/200x150/filters:strip_icc()/pic3453267.jpg</thumbnail>
+    <image>https://cf.geekdo-images.com/CzwSm8i7tkLz6cBnrILZBg__original/img/BhJ3sB3uk-eSdR1iW4EP3cu0Wi0=/0x0/filters:format(jpeg)/pic3453267.jpg</image>
+    <name type="primary" sortindex="1" value="Concordia"/>
+    <name type="alternate" sortindex="1" value="Concordia: Sestertiusszal kikövezett utak"/>
+    <name type="alternate" sortindex="1" value="Oppida Romana"/>
+    <name type="alternate" sortindex="1" value="Oppida: Cities of the Roman Empire"/>
+    <name type="alternate" sortindex="1" value="Roma Caput Mundi"/>
+    <name type="alternate" sortindex="1" value="Конкордия"/>
+    <name type="alternate" sortindex="1" value="コンコルディア"/>
+    <name type="alternate" sortindex="1" value="康考迪亚"/>
+    <name type="alternate" sortindex="1" value="콩코르디아"/>
+    <description>Two thousand years ago, the Roman Empire ruled the lands around the Mediterranean Sea. With peace at the borders, harmony inside the provinces, uniform law, and a common currency, the economy thrived and gave rise to mighty Roman dynasties as they expanded throughout the numerous cities. Guide one of these dynasties and send colonists to the remote realms of the Empire; develop your trade network; and appease the ancient gods for their favor; all to gain the chance to emerge victorious!&#10;&#10;Concordia is a peaceful strategy game of economic development in Roman times for 2-5 players aged 13 and up. Instead of looking to the luck of dice or cards, players must rely on their strategic abilities. Be sure to watch your rivals to determine which goals they are pursuing and where you can outpace them! In the game, colonists are sent out from Rome to settle down in cities that produce bricks, food, tools, wine, and cloth. Each player starts with an identical set of playing cards and acquires more cards during the game. These cards serve two purposes:&#10;&#10;&#10; They allow a player to choose actions during the game.&#10; They are worth victory points (VPs) at the end of the game. &#10;&#10;&#10;Concordia is a strategy game that requires advance planning and consideration of your opponent's moves. Every game is different, not only because of the sequence of new cards on sale but also due to the modular layout of cities. (One side of the game board shows the entire Roman Empire with 30 cities for 3-5 players, while the other shows Roman Italy with 25 cities for 2-4 players.) When all cards have been sold or after the first player builds his 15th house, the game ends. The player with the most VPs from the gods (Jupiter, Saturnus, Mercurius, Minerva, Vesta, etc.) wins the game.&#10;&#10;</description>
+    <yearpublished value="2013"/>
+    <minplayers value="2"/>
+    <maxplayers value="5"/>
+    <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="452">
+      <results numplayers="1">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="2"/>
+        <result value="Not Recommended" numvotes="229"/>
+      </results>
+      <results numplayers="2">
+        <result value="Best" numvotes="45"/>
+        <result value="Recommended" numvotes="254"/>
+        <result value="Not Recommended" numvotes="57"/>
+      </results>
+      <results numplayers="3">
+        <result value="Best" numvotes="138"/>
+        <result value="Recommended" numvotes="222"/>
+        <result value="Not Recommended" numvotes="4"/>
+      </results>
+      <results numplayers="4">
+        <result value="Best" numvotes="253"/>
+        <result value="Recommended" numvotes="118"/>
+        <result value="Not Recommended" numvotes="6"/>
+      </results>
+      <results numplayers="5">
+        <result value="Best" numvotes="58"/>
+        <result value="Recommended" numvotes="201"/>
+        <result value="Not Recommended" numvotes="65"/>
+      </results>
+      <results numplayers="5+">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="4"/>
+        <result value="Not Recommended" numvotes="160"/>
+      </results>
+    </poll>
+    <playingtime value="100"/>
+    <minplaytime value="100"/>
+    <maxplaytime value="100"/>
+    <minage value="13"/>
+    <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="72">
+      <results>
+        <result value="2" numvotes="1"/>
+        <result value="3" numvotes="0"/>
+        <result value="4" numvotes="0"/>
+        <result value="5" numvotes="0"/>
+        <result value="6" numvotes="0"/>
+        <result value="8" numvotes="3"/>
+        <result value="10" numvotes="14"/>
+        <result value="12" numvotes="41"/>
+        <result value="14" numvotes="12"/>
+        <result value="16" numvotes="1"/>
+        <result value="18" numvotes="0"/>
+        <result value="21 and up" numvotes="0"/>
+      </results>
+    </poll>
+    <poll name="language_dependence" title="Language Dependence" totalvotes="68">
+      <results>
+        <result level="71" value="No necessary in-game text" numvotes="0"/>
+        <result level="72" value="Some necessary text - easily memorized or small crib sheet" numvotes="21"/>
+        <result level="73" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="46"/>
+        <result level="74" value="Extensive use of text - massive conversion needed to be playable" numvotes="1"/>
+        <result level="75" value="Unplayable in another language" numvotes="0"/>
+      </results>
+    </poll>
+    <link type="boardgamecategory" id="1050" value="Ancient"/>
+    <link type="boardgamecategory" id="1021" value="Economic"/>
+    <link type="boardgamecategory" id="1008" value="Nautical"/>
+    <link type="boardgamemechanic" id="2839" value="Action Retrieval"/>
+    <link type="boardgamemechanic" id="2847" value="Advantage Token"/>
+    <link type="boardgamemechanic" id="2924" value="Auction: Dutch"/>
+    <link type="boardgamemechanic" id="2041" value="Card Drafting"/>
+    <link type="boardgamemechanic" id="2664" value="Deck, Bag, and Pool Building"/>
+    <link type="boardgamemechanic" id="2040" value="Hand Management"/>
+    <link type="boardgamemechanic" id="2947" value="Movement Points"/>
+    <link type="boardgamemechanic" id="2078" value="Point to Point Movement"/>
+    <link type="boardgamemechanic" id="2004" value="Set Collection"/>
+    <link type="boardgamemechanic" id="2897" value="Variable Set-up"/>
+    <link type="boardgamefamily" id="5606" value="Ancient: Rome"/>
+    <link type="boardgamefamily" id="64960" value="Components: Map (Continental / National scale)"/>
+    <link type="boardgamefamily" id="28722" value="Game: Concordia"/>
+    <link type="boardgamefamily" id="58955" value="Region: Mediterranean Sea"/>
+    <link type="boardgameexpansion" id="325490" value="Concordia Solitaria"/>
+    <link type="boardgameexpansion" id="209574" value="Concordia: 8 Forum Cards mini-expansion"/>
+    <link type="boardgameexpansion" id="232917" value="Concordia: Aegyptus / Creta"/>
+    <link type="boardgameexpansion" id="283177" value="Concordia: Balearica / Cyprus"/>
+    <link type="boardgameexpansion" id="165023" value="Concordia: Britannia / Germania"/>
+    <link type="boardgameexpansion" id="208364" value="Concordia: Gallia / Corsica"/>
+    <link type="boardgameexpansion" id="181084" value="Concordia: Salsa"/>
+    <link type="boardgameexpansion" id="262711" value="Concordia: Venus (Expansion)"/>
+    <link type="boardgameimplementation" id="256916" value="Concordia Venus"/>
+    <link type="boardgamedesigner" id="6045" value="Mac Gerdts"/>
+    <link type="boardgameartist" id="31545" value="Marina Fahrenbach"/>
+    <link type="boardgameartist" id="6045" value="Mac Gerdts"/>
+    <link type="boardgameartist" id="103476" value="Dominik Mayer"/>
+    <link type="boardgamepublisher" id="8401" value="PD-Verlag"/>
+    <link type="boardgamepublisher" id="267" value="999 Games"/>
+    <link type="boardgamepublisher" id="10768" value="Cranio Creations"/>
+    <link type="boardgamepublisher" id="34522" value="CrowD Games"/>
+    <link type="boardgamepublisher" id="24883" value="Ediciones MasQueOca"/>
+    <link type="boardgamepublisher" id="7496" value="Egmont Polska"/>
+    <link type="boardgamepublisher" id="8820" value="Gém Klub Kft."/>
+    <link type="boardgamepublisher" id="264" value="Heidelberger Spieleverlag"/>
+    <link type="boardgamepublisher" id="8291" value="Korea Boardgames Co., Ltd."/>
+    <link type="boardgamepublisher" id="25203" value="Lex Games"/>
+    <link type="boardgamepublisher" id="9881" value="New Games Order, LLC"/>
+    <link type="boardgamepublisher" id="34744" value="Playfun Games"/>
+    <link type="boardgamepublisher" id="3" value="Rio Grande Games"/>
+    <link type="boardgamepublisher" id="2861" value="Ystari Games"/>
+    <statistics page="1">
+      <ratings>
+        <usersrated value="27573"/>
+        <average value="8.12164"/>
+        <bayesaverage value="7.96279"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="18" bayesaverage="7.96279"/>
+          <rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="16" bayesaverage="7.98604"/>
+        </ranks>
+        <stddev value="1.18718"/>
+        <median value="0"/>
+        <owned value="31459"/>
+        <trading value="218"/>
+        <wanting value="1616"/>
+        <wishing value="8412"/>
+        <numcomments value="4520"/>
+        <numweights value="1163"/>
+        <averageweight value="3.0301"/>
+      </ratings>
+    </statistics>
+  </item>
+</items>
