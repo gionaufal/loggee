@@ -1,0 +1,52 @@
+<plays username="g10v45" userid="555323" total="4" page="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+  <play id="48279045" date="2021-01-06" quantity="1" length="78" incomplete="0" nowinstats="0" location="Home">
+    <item name="The Castles of Burgundy" objecttype="thing" objectid="271320">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgamecompilation"/>
+        <subtype value="boardgameimplementation"/>
+      </subtypes>
+    </item>
+    <comments>Played with all expansions except shields and routes</comments>
+    <players>
+      <player username="g10v45" userid="555323" name="me" startposition="" color="" score="180" new="0" rating="0" win="1"/>
+      <player username="" userid="0" name="Débora" startposition="" color="" score="175" new="0" rating="0" win="0"/>
+    </players>
+  </play>
+  <play id="48205103" date="2021-01-03" quantity="1" length="20" incomplete="0" nowinstats="0" location="Home">
+    <item name="7 Wonders Duel" objecttype="thing" objectid="173346">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+      </subtypes>
+    </item>
+    <comments>Military</comments>
+    <players>
+      <player username="g10v45" userid="555323" name="me" startposition="" color="" score="10" new="0" rating="0" win="1"/>
+      <player username="" userid="0" name="Débora" startposition="" color="" score="0" new="0" rating="0" win="0"/>
+    </players>
+  </play>
+  <play id="48205060" date="2021-01-02" quantity="1" length="60" incomplete="0" nowinstats="0" location="Home">
+    <item name="Concordia" objecttype="thing" objectid="124361">
+      <subtypes>
+        <subtype value="boardgame"/>
+      </subtypes>
+    </item>
+    <comments>Hispania map w/ salsa, finished with houses</comments>
+    <players>
+      <player username="g10v45" userid="555323" name="me" startposition="" color="" score="161" new="0" rating="0" win="1"/>
+      <player username="" userid="0" name="Débora" startposition="" color="" score="139" new="0" rating="0" win="0"/>
+    </players>
+  </play>
+  <play id="48205013" date="2020-12-31" quantity="1" length="44" incomplete="0" nowinstats="0" location="Home">
+    <item name="Jaipur" objecttype="thing" objectid="54043">
+      <subtypes>
+        <subtype value="boardgame"/>
+      </subtypes>
+    </item>
+    <players>
+      <player username="g10v45" userid="555323" name="me" startposition="" color="" score="2" new="0" rating="0" win="1"/>
+      <player username="" userid="0" name="Débora" startposition="" color="" score="1" new="0" rating="0" win="0"/>
+    </players>
+  </play>
+</plays>

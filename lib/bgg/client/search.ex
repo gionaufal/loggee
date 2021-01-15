@@ -20,4 +20,6 @@ defmodule Loggee.Bgg.Client.Search do
     )
     {:ok, result}
   end
+
+  defp organize_search_payload({:error, _reason} = error), do: error
 end
