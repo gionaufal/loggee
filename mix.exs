@@ -8,7 +8,9 @@ defmodule Loggee.MixProject do
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       escript: escript(),
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package()
     ]
   end
 
@@ -32,6 +34,18 @@ defmodule Loggee.MixProject do
     # optional, required by JSON middleware
       {:jason, ">= 1.0.0"},
       {:sweet_xml, ">= 0.3.0"}
+    ]
+  end
+
+  defp description do
+    "A tool to interact with your board game collection and plays in Board Game Geek"
+  end
+
+  defp package do
+    [
+      name: "bgg_loggee",
+      licenses: ["Apache-2.0"],
+      links: %{"GitHub" => "https://github.com/gionaufal/loggee"}
     ]
   end
 end
