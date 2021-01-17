@@ -34,4 +34,6 @@ defmodule Loggee.Bgg.Client.Plays do
     )
     {:ok, result}
   end
+
+  defp organize_plays_payload({:error, _reason} = error), do: error
 end

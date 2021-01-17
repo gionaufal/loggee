@@ -1,0 +1,67 @@
+<items totalitems="3" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse" pubdate="Thu, 14 Jan 2021 17:25:43 +0000">
+  <item objecttype="thing" objectid="68448" subtype="boardgame" collid="39295582">
+    <name sortindex="1">7 Wonders</name>
+    <yearpublished>2010</yearpublished>
+    <image>https://cf.geekdo-images.com/RvFVTEpnbb4NM7k0IF8V7A__original/img/JQvRoz0xns9LZII74-ygKGDq_Es=/0x0/filters:format(jpeg)/pic860217.jpg</image>
+    <thumbnail>https://cf.geekdo-images.com/RvFVTEpnbb4NM7k0IF8V7A__thumb/img/ZlG_SRFChObHenw79fAve56_mnk=/fit-in/200x150/filters:strip_icc()/pic860217.jpg</thumbnail>
+    <stats minplayers="2" maxplayers="7" minplaytime="30" maxplaytime="30" playingtime="30" numowned="110929">
+      <rating value="N/A">
+        <usersrated value="83299"/>
+        <average value="7.75377"/>
+        <bayesaverage value="7.65342"/>
+        <stddev value="1.27577"/>
+        <median value="0"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="59" bayesaverage="7.65342"/>
+          <rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="63" bayesaverage="7.61934"/>
+          <rank type="family" id="5499" name="familygames" friendlyname="Family Game Rank" value="7" bayesaverage="7.64952"/>
+        </ranks>
+      </rating>
+    </stats>
+    <status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="2" preordered="0" lastmodified="2021-01-07 07:20:08"/>
+    <numplays>0</numplays>
+    <wishlistcomment>New edition</wishlistcomment>
+  </item>
+  <item objecttype="thing" objectid="247367" subtype="boardgame" collid="76125500">
+    <name sortindex="1">Air, Land, Sea</name>
+    <yearpublished>2018</yearpublished>
+    <image>https://cf.geekdo-images.com/3wpYeNwO7k_yjpIN7IQwaw__original/img/_qQC98hufgmPn_fwMrP4I0sYKO8=/0x0/filters:format(jpeg)/pic4387681.jpg</image>
+    <thumbnail>https://cf.geekdo-images.com/3wpYeNwO7k_yjpIN7IQwaw__thumb/img/kfzWQvTxwcVx_ljICqhu5Coq53Q=/fit-in/200x150/filters:strip_icc()/pic4387681.jpg</thumbnail>
+    <stats minplayers="2" maxplayers="2" minplaytime="15" maxplaytime="30" playingtime="30" numowned="3612">
+      <rating value="N/A">
+        <usersrated value="1718"/>
+        <average value="7.61743"/>
+        <bayesaverage value="6.60995"/>
+        <stddev value="1.11941"/>
+        <median value="0"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="832" bayesaverage="6.60995"/>
+          <rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="442" bayesaverage="6.76453"/>
+        </ranks>
+      </rating>
+    </stats>
+    <status own="0" prevowned="0" fortrade="0" want="1" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="2" preordered="0" lastmodified="2021-01-07 07:09:29"/>
+    <numplays>0</numplays>
+  </item>
+  <item objecttype="thing" objectid="234487" subtype="boardgame" collid="70065051">
+    <name sortindex="1">Altiplano</name>
+    <yearpublished>2017</yearpublished>
+    <image>https://cf.geekdo-images.com/hgUDu_oG0uhnOWX4WM2vXA__original/img/S0BVejCX4yDWZv934q6BS7gAF9M=/0x0/filters:format(jpeg)/pic4070329.jpg</image>
+    <thumbnail>https://cf.geekdo-images.com/hgUDu_oG0uhnOWX4WM2vXA__thumb/img/KlzN2TK2WVHgCimiLG_aoEZXVQA=/fit-in/200x150/filters:strip_icc()/pic4070329.jpg</thumbnail>
+    <stats minplayers="2" maxplayers="5" minplaytime="60" maxplaytime="120" playingtime="120" numowned="9337">
+      <rating value="N/A">
+        <usersrated value="6763"/>
+        <average value="7.54712"/>
+        <bayesaverage value="7.13352"/>
+        <stddev value="1.26232"/>
+        <median value="0"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="283" bayesaverage="7.13352"/>
+          <rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="173" bayesaverage="7.22454"/>
+        </ranks>
+      </rating>
+    </stats>
+    <status own="0" prevowned="0" fortrade="0" want="0" wanttoplay="0" wanttobuy="0" wishlist="1" wishlistpriority="2" preordered="0" lastmodified="2020-04-21 03:29:30"/>
+    <numplays>0</numplays>
+  </item>
+</items>

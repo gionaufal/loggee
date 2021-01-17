@@ -25,7 +25,7 @@ defmodule Loggee.Bgg.Client.Collection do
 
   defp organize_collection_payload({:ok, %Tesla.Env{body: body}}) do
     result = body |> xmap(
-      count: ~x"//items/@totalitems",
+      count: ~x"//items/@totalitems"I,
       games: [
         ~x"//item"l,
         comment: ~x"//comment/text()",
@@ -43,4 +43,6 @@ defmodule Loggee.Bgg.Client.Collection do
     )
     {:ok, result}
   end
+
+  defp organize_collection_payload({:error, _reason} = error), do: error
 end
