@@ -29,8 +29,8 @@ defmodule Loggee.Bgg.Client.PostPlays do
     )
   end
 
-  defp handle_post({:ok, response}) do
-    {:ok, %{message: "Play recorded. You have played this game #{response["numplays"]} times"}}
+  defp handle_post({:ok, %Tesla.Env{body: body}}) do
+    {:ok, %{message: "Play recorded. You have played this game #{body["numplays"]} times"}}
   end
 
   defp handle_post({_, _response} = error), do: error
