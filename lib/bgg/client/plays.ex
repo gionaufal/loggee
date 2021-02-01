@@ -7,6 +7,21 @@ defmodule Loggee.Bgg.Client.Plays do
     |> organize_plays_payload
   end
 
+  # TODO: improve this method to count all occurrences, right now it's
+  # only counting the first page of the plays endpoint (100 entries).
+  def play_count(user, start_date \\ nil, end_date \\ nil, game_id \\ nil) do
+    {:ok, response} = call(user, start_date, end_date, game_id)
+
+    response.plays
+    |> Enum.group_by(&Map.get(&1, :game))
+    |> Enum.map(fn {key, value} -> %{
+      game: key.name,
+      play_count: Enum.count(value)
+    }
+    end)
+    |> Enum.sort_by(&(&1.play_count), :desc)
+  end
+
   defp organize_plays_payload({:ok, %Tesla.Env{body: body}}) do
     result =  body |> xmap(
       count: ~x"//plays/@total",
