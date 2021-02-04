@@ -40,7 +40,6 @@ To install the project, just clone it and generate the executable:
 
 ## TO DO:
 
-- Fix play count bug
 - Implement a telegram bot
 - Implement a web UI
 - General CLI UI improvements

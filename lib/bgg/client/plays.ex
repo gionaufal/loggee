@@ -1,14 +1,12 @@
 defmodule Loggee.Bgg.Client.Plays do
   use Loggee.Bgg.Client
 
-  def call(user, start_date \\ nil, end_date \\ nil, game_id \\ nil) do
-    "/plays?username=#{user}&mindate=#{start_date}&maxdate=#{end_date}&id=#{game_id}"
+  def call(user, start_date \\ nil, end_date \\ nil, game_id \\ nil, page \\ 1, previous_result \\ nil) do
+    "/plays?username=#{user}&mindate=#{start_date}&maxdate=#{end_date}&id=#{game_id}&page=#{page}"
     |> get()
-    |> organize_plays_payload
+    |> organize_plays_payload(start_date, end_date, page, previous_result)
   end
 
-  # TODO: improve this method to count all occurrences, right now it's
-  # only counting the first page of the plays endpoint (100 entries).
   def play_count(user, start_date \\ nil, end_date \\ nil, game_id \\ nil) do
     {:ok, response} = call(user, start_date, end_date, game_id)
 
@@ -22,9 +20,12 @@ defmodule Loggee.Bgg.Client.Plays do
     |> Enum.sort_by(&(&1.play_count), :desc)
   end
 
-  defp organize_plays_payload({:ok, %Tesla.Env{body: body}}) do
+  defp organize_plays_payload(result, start_date, end_date, page, previous_result)
+
+  defp organize_plays_payload({:ok, %Tesla.Env{body: body}}, start_date, end_date, page, previous_result) do
     result =  body |> xmap(
-      count: ~x"//plays/@total",
+      count: ~x"//plays/@total"I,
+      username: ~x"//plays/@username"s,
       user_id: ~x"//plays/@userid",
       plays: [
         ~x"//play"l,
@@ -47,8 +48,25 @@ defmodule Loggee.Bgg.Client.Plays do
         ]
       ]
     )
+
+    result = if previous_result do
+      Map.put(result, :plays, Enum.concat(previous_result.plays, result.plays))
+    else
+      result
+    end
+
+    current_count = Enum.count(result.plays)
+
+    iterate_plays(result, start_date, end_date, page, current_count)
+  end
+
+  defp organize_plays_payload({:error, _reason} = error, _, _, _, _), do: error
+
+  defp iterate_plays(result, _, _, _, current_count) when result.count == current_count do
     {:ok, result}
   end
 
-  defp organize_plays_payload({:error, _reason} = error), do: error
+  defp iterate_plays(result, start_date, end_date, page, _) do
+    call(result.username, start_date, end_date, nil, page + 1, result)
+  end
 end

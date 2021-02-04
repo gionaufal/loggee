@@ -8,14 +8,14 @@ defmodule Loggee.Bgg.Client.PlaysTest do
     test "when user asks for all their plays" do
       {:ok, body} = File.cwd! |> Path.join("test/fixtures/plays.xml") |> File.read
 
-      mock(fn %{method: :get, url: "https://boardgamegeek.com/xmlapi2/plays?username=g10v45&mindate=&maxdate=&id="} ->
+      mock(fn %{method: :get, url: "https://boardgamegeek.com/xmlapi2/plays?username=g10v45&mindate=&maxdate=&id=&page=1"} ->
         %Tesla.Env{status: 200, body: body}
       end)
 
       {:ok, response} = Plays.call("g10v45")
 
       assert  %{
-        count: '4',
+        count: 4,
         plays: [
           %{comment: "Played with all expansions except shields and routes",
             date: '2021-01-06',
@@ -49,13 +49,14 @@ defmodule Loggee.Bgg.Client.PlaysTest do
               %{name: "Débora", score: '1', username: [], win: '0'}
             ]}
           ],
-          user_id: '555323'
+          user_id: '555323',
+          username: "g10v45"
           } == response
     end
   end
 
   test "when there is an unexpected error, returns an error" do
-    mock(fn %{method: :get, url: "https://boardgamegeek.com/xmlapi2/plays?username=banana&mindate=&maxdate=&id="} ->
+    mock(fn %{method: :get, url: "https://boardgamegeek.com/xmlapi2/plays?username=banana&mindate=&maxdate=&id=&page=1"} ->
       {:error, :timeout}
     end)
 
