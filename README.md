@@ -12,8 +12,7 @@ Interact with BGG via a simple CLI.
 - Post plays
 - Get plays by date range
 - Get number of plays for each played game by date range, good to keep track of
-  your 10x10 challenge (WIP, currently has a bug because it's only counting the
-last 100 plays)
+  your 10x10 challenge.
 
 ## Configuration, installation and usage
 

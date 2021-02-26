@@ -14,10 +14,11 @@ defmodule Loggee.Bgg.Client.Plays do
     |> Enum.group_by(&Map.get(&1, :game))
     |> Enum.map(fn {key, value} -> %{
       game: key.name,
-      play_count: Enum.count(value)
+      game_id: key.id,
+      count: Enum.count(value)
     }
     end)
-    |> Enum.sort_by(&(&1.play_count), :desc)
+    |> Enum.sort_by(&(&1.count), :desc)
   end
 
   defp organize_plays_payload(result, start_date, end_date, page, previous_result)
