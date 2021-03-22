@@ -9,6 +9,9 @@ defmodule Loggee.Bot do
   command("random", description: "Gets a random game from your collection to be played in a given time\\. Usage: `/random BGG_USERNAME 90`")
   command("search", description: "Searches for game name in BGG, returns game name and ID\\. Usage `/search concordia`")
   command("game", description: "Gets game info when given a BGG ID\\. Usage: `/game 124361`")
+  command("wishlist", description: "Gets wishlist from given player in BGG")
+  command("plays", description: "Gets plays from a given player in a given timeframe\\. Usage: `/plays BGG_USERNAME 2021-01-01 2021-01-03`")
+  command("playcount", description: "Gets play count from games from a given player in a given timeframe\\. Usage: `/plays BGG_USERNAME 2021-01-01 2021-01-03`")
   command("help", description: "Print the bot's options")
 
   middleware(ExGram.Middleware.IgnoreUsername)
@@ -50,6 +53,29 @@ defmodule Loggee.Bot do
     answer(context, result)
   end
 
+  def handle({:command, :wishlist, msg}, context) do
+    results = msg.text
+              |> Loggee.wishlist(:wishlist)
+              |> handle_wishlist()
+    answer(context, "#{Enum.map(results, fn result -> result end)}")
+  end
+
+  def handle({:command, :plays, msg}, context) do
+    [user, start_date, end_date] = String.split(msg.text, " ")
+    results = user
+             |> Loggee.plays(start_date, end_date)
+             |> handle_plays()
+    answer(context, "#{Enum.map(results, fn result -> result end)}")
+  end
+
+  def handle({:command, :playcount, msg}, context) do
+    [user, start_date, end_date] = String.split(msg.text, " ")
+    results = user
+             |> Loggee.play_count(start_date, end_date)
+             |> handle_playcount()
+    answer(context, "#{Enum.map(results, fn result -> result end)}")
+  end
+
   def handle({:command, :help, _msg}, context) do
     help = handle_help()
     answer(context, "#{Enum.map(help, fn h -> h end)}", parse_mode: "MarkdownV2")
@@ -65,6 +91,41 @@ defmodule Loggee.Bot do
      description: #{result.description},
      weight: #{result.weight},
      rating: #{result.rating}"
+  end
+
+  defp handle_wishlist({:ok, results}) do
+    results.games
+    |> Enum.map(fn result ->
+      " name: #{result.name}
+       id: #{result.id}
+       comment: #{result.wishlist_comment}
+       play time: #{result.play_time}
+       player count: #{result.min_players} - #{result.max_players}
+       year: #{result.year}
+      ---------
+      "
+    end)
+  end
+
+  defp handle_plays({:ok, results}) do
+    results.plays
+    |> Enum.map(fn result ->
+      "game: #{result.game.name}
+       date: #{result.date}
+       comment: #{result.comment}
+       length: #{result.length}
+       location: #{result.location}
+       players: #{Enum.map(result.players, fn player -> "#{player.name} - score: #{player.score} - win: #{player.win}" end)}
+      ---------
+      "
+    end)
+  end
+
+  defp handle_playcount(results) do
+    results
+    |> Enum.map(fn result ->
+      "#{result.count}x #{result.game}\n"
+    end)
   end
 
   defp handle_help() do
