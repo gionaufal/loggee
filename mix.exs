@@ -21,13 +21,15 @@ defmodule Loggee.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {Loggee.Application, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ex_gram, "~> 0.21"},
       {:tesla, "~> 1.4.0"},
     # optional, but recommended adapter
       {:hackney, "~> 1.16.0"},

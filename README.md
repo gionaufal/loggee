@@ -13,6 +13,7 @@ Interact with BGG via a simple CLI.
 - Get plays by date range
 - Get number of plays for each played game by date range, good to keep track of
   your 10x10 challenge.
+- NEW: a telegram bot with almost all those features
 
 ## Configuration, installation and usage
 
@@ -27,6 +28,14 @@ local environment variables. You need to set them wherever you set your envs
   export BGG_PASSWORD="yourpassword"
   ```
 
+If you want to run the Telegram bot, create your own following [this
+guide](https://core.telegram.org/bots) and set the token in your env vars
+
+```
+  export TELEGRAM_LOGEE_TOKEN="yourtoken"
+```
+
+
 To install the project, just clone it and generate the executable:
 
   ```
@@ -39,6 +48,6 @@ To install the project, just clone it and generate the executable:
 
 ## TO DO:
 
-- Implement a telegram bot
+- Implement post plays into the telegram bot
 - Implement a web UI
 - General CLI UI improvements
