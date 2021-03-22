@@ -5,22 +5,10 @@ defmodule Loggee.Bot do
     name: @bot,
     setup_commands: true
 
-  @cmds [
-    %{command: "start", description: "Says Hi"},
-    %{command: "random", description: "Gets a random game from your collection to be played in a given time\\. Usage: `/random BGG_USERNAME 90`"},
-    %{command: "search", description: "Searches for game name in BGG, returns game name and ID\\. Usage `/search concordia`"},
-    %{command: "game", description: "Gets game info when given a BGG ID\\. Usage: `/game 124361`"},
-    %{command: "help", description: "Print options"},
-  ]
-
-  # Enum.map(@commands, fn c ->
-  #   command(c.command, description: c.description)
-  # end)
-
-  command("start")
-  command("random", description: "Gets a random game from your collection to be played in a given time. Usage: /random BGG_USERNAME TIME")
-  command("search", description: "Searches for game name in BGG, returns game name and ID. Usage /search concordia")
-  command("game", description: "Gets game info when given a BGG ID. Usage: /game 124361")
+  command("start", description: "Says Hi")
+  command("random", description: "Gets a random game from your collection to be played in a given time\\. Usage: `/random BGG_USERNAME 90`")
+  command("search", description: "Searches for game name in BGG, returns game name and ID\\. Usage `/search concordia`")
+  command("game", description: "Gets game info when given a BGG ID\\. Usage: `/game 124361`")
   command("help", description: "Print the bot's options")
 
   middleware(ExGram.Middleware.IgnoreUsername)
@@ -28,7 +16,7 @@ defmodule Loggee.Bot do
   def bot(), do: @bot
 
   def handle({:command, :start, _msg}, context) do
-    answer(context, "Hi!")
+    answer(context, "Hi, this is the Loggee Bot, where you can interact with BGG in an easy way! Send /help for a list of commands")
   end
 
   def handle({:command, :random, msg}, context) do
@@ -80,8 +68,10 @@ defmodule Loggee.Bot do
   end
 
   defp handle_help() do
-    Enum.map(@cmds, fn c ->
-      "/#{c.command} \\- #{c.description}\n"
+    Enum.map(@commands, fn c ->
+      {:ok, name} = Keyword.fetch(c, :command)
+      {:ok, description} = Keyword.fetch(c, :description)
+      "/#{name} \\- #{description}\n"
     end)
   end
 
