@@ -7,7 +7,7 @@ defmodule Loggee.Commands.PostPlay do
     IO.puts("\nUser: #{user}, id: #{user_id}\n")
     user_player = Loggee.Player.build("me", user, user_id)
 
-    game = IO.gets("\n-> search for the game: (replace spaces with `+`)\n") |> String.trim()
+    game = IO.gets("\n-> search for the game:\n") |> String.trim()
 
     {:ok, games} = Loggee.search(game)
     IO.puts("Count: #{games.count}")

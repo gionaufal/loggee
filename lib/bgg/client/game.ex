@@ -9,7 +9,7 @@ defmodule Loggee.Bgg.Client.Game do
 
   defp organize_game_payload({:ok, %Tesla.Env{body: body}}) do
     result = body |> xmap(
-      description: ~x"//description/text()",
+      description: ~x"//description/text()"s,
       id: ~x"//item/@id",
       image: ~x"//image/text()",
       language_dependence: [
