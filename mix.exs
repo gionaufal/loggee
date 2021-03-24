@@ -29,6 +29,7 @@ defmodule Loggee.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:ex_gram, "~> 0.21"},
       {:tesla, "~> 1.4.0"},
     # optional, but recommended adapter
