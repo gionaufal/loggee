@@ -10,15 +10,21 @@ defmodule Loggee.Bgg.Client.Plays do
   def play_count(user, start_date \\ nil, end_date \\ nil, game_id \\ nil) do
     {:ok, response} = call(user, start_date, end_date, game_id)
 
-    response.plays
-    |> Enum.group_by(&Map.get(&1, :game))
-    |> Enum.map(fn {key, value} -> %{
-      game: key.name,
-      game_id: key.id,
-      count: Enum.count(value)
+    games = response.plays
+            |> remove_expansions
+            |> Enum.group_by(&Map.get(&1, :game))
+            |> Enum.map(fn {key, value} -> %{
+              game: key.name,
+              game_id: key.id,
+              count: Enum.count(value)
+            }
+            end)
+            |> Enum.sort_by(&(&1.count), :desc)
+
+    %{
+      count: Enum.count(response.plays),
+      games: games
     }
-    end)
-    |> Enum.sort_by(&(&1.count), :desc)
   end
 
   defp organize_plays_payload(result, start_date, end_date, page, previous_result)
@@ -36,6 +42,7 @@ defmodule Loggee.Bgg.Client.Plays do
           ~x"//item",
           name: ~x"//@name",
           id: ~x"//@objectid",
+          subtypes: ~x"//subtype/@value"sl
         ],
         id: ~x"./@id",
         length: ~x"./@length",
@@ -69,5 +76,12 @@ defmodule Loggee.Bgg.Client.Plays do
 
   defp iterate_plays(result, start_date, end_date, page, _) do
     call(result.username, start_date, end_date, nil, page + 1, result)
+  end
+
+  defp remove_expansions(plays) do
+    plays
+    |> Enum.filter(fn play ->
+      !Enum.member?(play.game.subtypes, "boardgameexpansion")
+    end)
   end
 end
