@@ -16,15 +16,33 @@ defmodule Loggee.Bgg.Client.Plays do
             |> Enum.map(fn {key, value} -> %{
               game: key.name,
               game_id: key.id,
-              count: Enum.count(value)
+              count: count_plays(value),
+              minutes_played: sum_minutes(value),
+              avg_play_time: div(sum_minutes(value), count_plays(value))
             }
             end)
             |> Enum.sort_by(&(&1.count), :desc)
 
     %{
-      count: Enum.count(response.plays),
+      count: Enum.count(response.plays |> remove_expansions),
+      hours_played: add_total_time(games),
       games: games
     }
+  end
+
+  defp add_total_time(games) do
+    (games
+    |> Enum.map(fn game -> game.minutes_played end)
+    |> Enum.sum)/60
+    |> Float.round(2)
+  end
+
+  defp count_plays(game) do
+    Enum.count(game)
+  end
+
+  defp sum_minutes(game) do
+    Enum.map(game, fn x -> x.length end) |> Enum.sum()
   end
 
   defp organize_plays_payload(result, start_date, end_date, page, previous_result)
@@ -45,7 +63,7 @@ defmodule Loggee.Bgg.Client.Plays do
           subtypes: ~x"//subtype/@value"sl
         ],
         id: ~x"./@id",
-        length: ~x"./@length",
+        length: ~x"./@length"I,
         location: ~x"./@location",
         players: [
           ~x"//players/player"l,
