@@ -25,6 +25,7 @@ defmodule Loggee.Bgg.Client.Plays do
 
     %{
       count: Enum.count(response.plays |> remove_expansions),
+      distinct_games: Enum.count(games),
       hours_played: add_total_time(games),
       games: games
     }
