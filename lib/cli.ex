@@ -4,7 +4,7 @@ defmodule Loggee.Cli do
     random_game: "Get a random game from my collection",
     post_play: "Post a played game",
     plays: "See my plays",
-    play_count: "Play count for your played games in a given interval",
+    stats: "Statistics/Play count for your played games in a given interval",
     search: "Search for a game",
     game: "See game details searching by ID",
     wishlist: "See my wishlist",
@@ -34,7 +34,7 @@ defmodule Loggee.Cli do
         IO.gets("starting when? YYYY-MM-DD\n-> ") |> String.trim,
         IO.gets("ending when? YYYY-MM-DD\n-> ") |> String.trim
       )
-      :play_count -> Loggee.play_count(@user,
+      :stats -> Loggee.stats(@user,
         IO.gets("starting when? YYYY-MM-DD\n-> ") |> String.trim,
         IO.gets("ending when? YYYY-MM-DD\n-> ") |> String.trim
       )
