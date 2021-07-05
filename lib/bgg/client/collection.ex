@@ -31,7 +31,7 @@ defmodule Loggee.Bgg.Client.Collection do
         comment: ~x"//comment/text()",
         id: ~x"./@objectid",
         image: ~x"//image/text()",
-        name: ~x"//name/text()",
+        name: ~x"//name/text()"s,
         play_count: ~x"//numplays/text()"I,
         play_time: ~x"//stats/@playingtime"I,
         min_players: ~x"//stats/@minplayers"I,
