@@ -10,6 +10,8 @@ defmodule Loggee.Bgg.Client.Plays do
   def play_count(user, start_date \\ nil, end_date \\ nil, game_id \\ nil) do
     {:ok, response} = call(user, start_date, end_date, game_id)
 
+    {:ok, collection} = Loggee.collection(user, :collection)
+
     games = response.plays
             |> Enum.group_by(&Map.get(&1, :game))
             |> Enum.map(fn {key, value} -> %{
@@ -19,6 +21,7 @@ defmodule Loggee.Bgg.Client.Plays do
               minutes_played: sum_minutes(value),
               new: new?(value),
               expansion: expansion?(value),
+              borrowed: borrowed?(collection, value),
               avg_play_time: div(sum_minutes(value), count_plays(value))
             }
             end)
@@ -36,21 +39,21 @@ defmodule Loggee.Bgg.Client.Plays do
       most_played_game: List.first(games_without_expansions),
       most_played_game_by_time: games |> Enum.sort_by(&(&1.minutes_played), :desc) |> List.first(),
       new_games: games |> Enum.filter(fn game -> game.new end),
+      borrowed_games: games |> Enum.filter(fn game -> game.borrowed end),
       games: games_without_expansions
     }
   end
 
   def stats(user, start_date \\ nil, end_date \\ nil, game_id \\ nil) do
     play_count = play_count(user, start_date, end_date, game_id)
-    IO.puts("Played #{play_count.count} times, from #{play_count.distinct_games} distinct games. That was #{play_count.hours_played} hours of play time!")
-    IO.puts("Of those, #{play_count.count_solo_plays} were solo plays.")
-    IO.puts("Played in #{play_count.distinct_days_played} days during this period.")
-    IO.puts("The most played day was #{play_count.most_played_day.date}, with #{play_count.most_played_day.count} plays.")
-    IO.puts("Played #{play_count.most_played_game.game} the most - #{play_count.most_played_game.count} times.")
-    IO.puts("But spent the most time playing #{play_count.most_played_game_by_time.game} - #{play_count.most_played_game_by_time.minutes_played} minutes.")
+    IO.puts("Played #{play_count.count} times (#{play_count.count_solo_plays} solo plays), from #{play_count.distinct_games} distinct games (#{Enum.count(play_count.borrowed_games)} borrowed, counting expansions).")
+    IO.puts("In total, that was #{play_count.hours_played} hours of play time, distributed over #{play_count.distinct_days_played} days during this period")
+    IO.puts("The most played day was #{play_count.most_played_day.date}, with #{play_count.most_played_day.count} plays")
+    IO.write("Played #{play_count.most_played_game.game} the most (#{play_count.most_played_game.count}x), ")
+    IO.puts("and spent the most time playing #{play_count.most_played_game_by_time.game} (#{play_count.most_played_game_by_time.minutes_played} min)")
     IO.puts("Those were the played games:")
     Enum.each(play_count.games, fn game ->
-      IO.puts("--- #{game.count}x #{game.game} - #{game.minutes_played} minutes - Average play time: #{game.avg_play_time}")
+      IO.puts("--- #{game.count}x #{game.game} - #{if game.borrowed, do: "BORROWED", else: "OWNED"} - #{game.minutes_played} minutes - Average play time: #{game.avg_play_time}")
     end)
     IO.puts("Of those, the following were played for the first time (including expansions):")
     Enum.each(play_count.new_games, fn game ->
@@ -153,5 +156,10 @@ defmodule Loggee.Bgg.Client.Plays do
   defp expansion?(plays) do
     plays
     |> Enum.any?(fn play -> Enum.member?(play.game.subtypes, "boardgameexpansion") end)
+  end
+
+  defp borrowed?(collection, games) do
+    names = Enum.map(collection.games, fn x -> x.name end)
+    !Enum.member?(names, List.first(games).game.name)
   end
 end
