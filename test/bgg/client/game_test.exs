@@ -38,7 +38,7 @@ defmodule Loggee.Bgg.Client.GameTest do
       {:ok, response} = Game.call("00000000")
 
       assert %{
-        description: nil,
+        description: "",
         id: nil,
         image: nil,
         language_dependence: [],
