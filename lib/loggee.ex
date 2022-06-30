@@ -7,7 +7,7 @@ defmodule Loggee do
   defdelegate game(id), to: Game, as: :call
   defdelegate plays(user, start_date \\ nil, end_date \\ nil, id \\ nil), to: Plays, as: :call
   defdelegate play_count(user, start_date \\ nil, end_date \\ nil, id \\ nil), to: Plays, as: :play_count
-  defdelegate stats(user, start_date \\ nil, end_date \\ nil, id \\ nil), to: Plays, as: :stats
+  defdelegate stats(user, start_date \\ nil, end_date \\ nil, id \\ nil), to: Commands.Stats, as: :call
   defdelegate search(query), to: Search, as: :call
   defdelegate post_play(), to: Commands.PostPlay, as: :call
   defdelegate random_game(), to: Commands.RandomGame, as: :call
