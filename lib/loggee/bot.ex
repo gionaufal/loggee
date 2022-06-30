@@ -6,7 +6,7 @@ defmodule Loggee.Bot do
     setup_commands: true
 
   command("start", description: "Says Hi")
-  command("random", description: "Gets a random game from your collection to be played in a given time\\. Usage: `/random BGG_USERNAME 90`")
+  command("random", description: "Gets a random game from your collection to be played in a given time\\. Usage: `/random BGG_USERNAME min_time max_time players`")
   command("search", description: "Searches for game name in BGG, returns game name and ID\\. Usage `/search concordia`")
   command("game", description: "Gets game info when given a BGG ID\\. Usage: `/game 124361`")
   command("wishlist", description: "Gets wishlist from given player in BGG")
@@ -23,8 +23,8 @@ defmodule Loggee.Bot do
   end
 
   def handle({:command, :random, msg}, context) do
-    [user, time] = String.split(msg.text, " ")
-    game = Loggee.Commands.RandomGame.call(user, String.to_integer(time))
+    [user, min_time, max_time, players] = String.split(msg.text, " ")
+    game = Loggee.Commands.RandomGame.call(user, String.to_integer(min_time), String.to_integer(max_time), String.to_integer(players))
     answer(context, "Here's a game for you: \n#{game.name} \nplay time: #{game.play_time}\nplay count: #{game.play_count}")
   end
 
