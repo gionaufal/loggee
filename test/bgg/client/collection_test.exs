@@ -14,7 +14,7 @@ defmodule Loggee.Bgg.Client.CollectionTest do
 
       {:ok, response} = Collection.call("g10v45", :collection)
 
-      assert %{count: 2, games: [%{name: '7 Wonders Duel'}, %{name: 'Azul'}]} = response
+      assert %{count: 2, games: [%{name: "7 Wonders Duel"}, %{name: "Azul"}]} = response
     end
 
     test "when user has no games in their collection" do
@@ -38,7 +38,7 @@ defmodule Loggee.Bgg.Client.CollectionTest do
 
       {:ok, response} = Collection.call("g10v45", :wishlist)
 
-      assert %{count: 3, games: [%{name: '7 Wonders'}, %{name: 'Air, Land, Sea'}, %{name: 'Altiplano'}]} = response
+      assert %{count: 3, games: [%{name: "7 Wonders"}, %{name: "Air, Land, Sea"}, %{name: "Altiplano"}]} = response
     end
   end
 

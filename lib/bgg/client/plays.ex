@@ -56,7 +56,9 @@ defmodule Loggee.Bgg.Client.Plays do
   end
 
   defp sum_minutes(game) do
-    Enum.map(game, fn x -> x.length end) |> Enum.sum()
+    game
+    |> Enum.map(fn x -> x.length end)
+    |> Enum.sum()
   end
 
   defp organize_plays_payload(result, start_date, end_date, page, previous_result)
