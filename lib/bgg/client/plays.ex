@@ -125,10 +125,12 @@ defmodule Loggee.Bgg.Client.Plays do
 
   defp count_solo(plays) do
     plays
-    |> Enum.filter(fn play ->
-      String.downcase(play.comment) =~ "solo"
-    end)
+    |> Enum.filter(&solo?(&1))
     |> Enum.count
+  end
+
+  defp solo?(play) do
+    String.downcase(play.comment) =~ "solo" or Enum.count(play.players) == 1
   end
 
   defp new?(plays) do
